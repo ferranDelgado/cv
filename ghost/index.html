@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ferran Delgado Cassi - CV</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 10pt;
+            line-height: 1.45;
+            color: #2c3e50;
+            background-color: #ffffff;
+        }
+
+        /* Header section */
+        .header {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+            color: #1a252f;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 13pt;
+            font-weight: 500;
+            color: #34495e;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact strip */
+        .contact-table {
+            width: 100%;
+            margin-top: 8px;
+            border-collapse: collapse;
+        }
+
+        .contact-table td {
+            padding: 0;
+            font-size: 9pt;
+            color: #5a6c7d;
+        }
+
+        .contact-link {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Layout */
+        h2 {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #1a252f;
+            text-transform: uppercase;
+            margin: 18px 0 8px 0;
+            letter-spacing: 0.5px;
+            border-left: 3.5px solid #2980b9;
+            padding-left: 8px;
+            page-break-after: avoid;
+        }
+
+        .profile-text {
+            margin: 0 0 15px 0;
+            text-align: justify;
+        }
+
+        /* Experience Block */
+        .experience-item {
+            margin-bottom: 12px;
+        }
+
+        .job-header {
+            width: 100%;
+            margin-bottom: 4px;
+            font-size: 10.5pt;
+            font-weight: bold;
+            border-collapse: collapse;
+        }
+
+        .job-meta {
+            text-align: right;
+            color: #7f8c8d;
+            font-weight: normal;
+            font-size: 9.5pt;
+        }
+
+        ul {
+            margin: 0 0 4px 0;
+            padding-left: 18px;
+        }
+
+        li {
+            margin-bottom: 4px;
+            text-align: justify;
+        }
+
+        .tech-stack {
+            font-size: 9pt;
+            margin: 4px 0 12px 18px;
+            color: #5a6c7d;
+        }
+
+        .short-job {
+            margin-bottom: 8px;
+            font-size: 10pt;
+        }
+
+        /* Skills Layout */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            /* Adds space before the Experience section */
+        }
+
+        .skills-table td {
+            padding: 3px 0;
+            font-size: 9.5pt;
+            vertical-align: top;
+        }
+
+        .skills-label {
+            font-weight: bold;
+            color: #34495e;
+            width: 22%;
+        }
+
+        /* By default, don't show print-only elements on the screen */
+        .print-only {
+            display: none;
+        }
+
+        /* ==========================================================================
+           2. BROWSER SCREEN STYLES (Enforces vertical page alignment)
+           ========================================================================== */
+        @media screen {
+            body {
+                background-color: #f4f6f8;
+                padding: 30px 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cv-document-container {
+                background: #ffffff;
+                max-width: 800px;
+                width: 100%;
+                padding: 40px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                border-radius: 4px;
+            }
+        }
+
+        /* Mobile Layout adjustments */
+        @media screen and (max-width: 600px) {
+            @media screen {
+                body {
+                    padding: 10px 5px;
+                }
+
+                .cv-document-container {
+                    padding: 20px 15px;
+                }
+            }
+
+            .job-header td,
+            .contact-table td {
+                display: block;
+                width: 100% !important;
+                text-align: left !important;
+                margin-bottom: 4px;
+            }
+
+            .skills-label {
+                width: 30%;
+            }
+        }
+
+        /* ==========================================================================
+           3. PRINT STYLES (A4 PDF Exporting)
+           ========================================================================== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 16mm 14mm;
+            }
+
+            body {
+                background-color: #ffffff;
+            }
+
+            .cv-document-container {
+                width: 100%;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            .experience-item {
+                page-break-inside: avoid;
+            }
+
+            /* Hide the individual social links on paper */
+            .screen-only {
+                display: none;
+            }
+
+            /* Reveal your custom CV domain on the printed PDF */
+            .print-only {
+                display: inline;
+                font-weight: bold;
+                color: #2980b9;
+            }
+
+            /* Automatically prints the full URL next to your links on the PDF */
+            /*.print-url::after {
+                content: " (" attr(href) ")";
+                font-size: 8.5pt;
+                color: #5a6c7d;
+            }*/
+
+            /* Optional: Strips HTTP/HTTPS prefixes from the printed text to keep it extra clean */
+            /* Note: Some older print engines ignore string-replacement functions, but it's a great fallback */
+            /*.print-url::after {
+                content: " (" attr(href) ")";
+            }*/
+
+            .short-job {
+                display: none;
+            }
+
+            h2 {
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- This single wrapper container fixes the horizontal broken column issue -->
+    <div class="cv-document-container">
+
+        <!-- HEADER SECTION -->
+        <div class="header">
+            <h1>Ferran Delgado Cassi</h1>
+            <div class="subtitle">Backend Developer</div>
+
+            <table class="contact-table">
+                <tr>
+                    <td class="contact-left">
+                        <span class="screen-only">📱</span> +34 658 904 966 &nbsp;|&nbsp;
+                        <span class="screen-only">✉️</span> <a class="contact-link"
+                            href="mailto:ferran.delgado@protonmail.com">ferran.delgado@protonmail.com</a>
+                    </td>
+                    <td class="contact-right">
+                        <!-- Visible in browser: Emojis + clean text links -->
+                        <span class="screen-only">
+                            🔗 <a class="contact-link" href="https://linkedin.com/in/YOUR_PROFILE">LinkedIn</a>
+                            &nbsp;|&nbsp;
+                            💻 <a class="contact-link" href="https://github.com/ferrandelgado">GitHub</a>
+                        </span>
+                        <!-- Visible on the printed PDF: Full clean URL with a clean text tag -->
+                        <span class="print-only">Web: https://cv.narref.cat/</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- PROFILE SECTION -->
+        <h2>Profile</h2>
+        <p class="profile-text">
+            Passionate software engineer with 10 years of experience building data-intensive, distributed, and
+            high-scale systems. Proven track record across multiple domains—spanning real-time bidding systems
+            processing 10K+ QPS at Trovit, event-driven microservices at Zopa, global-scale gaming infrastructure at
+            King, and high-growth gaming and Web3 platforms at Amihan. Adept at tackling complex architectural problems,
+            scaling cloud infrastructure, and mentoring cross-functional engineering teams.
+        </p>
+
+        <!-- TECHNICAL SKILLS SECTION (Moved Here) -->
+        <h2>Technical Skills</h2>
+        <table class="skills-table">
+            <tr>
+                <td class="skills-label">Languages:</td>
+                <td>Go, TypeScript, JavaScript, Kotlin, Java, Solidity, Python, PHP</td>
+            </tr>
+            <tr>
+                <td class="skills-label">Data & Streaming:</td>
+                <td>Redis, Postgres, MySQL, SQL Server, Kafka, Kafka-Streams, Spark, Hadoop</td>
+            </tr>
+            <tr>
+                <td class="skills-label">Cloud & DevOps:</td>
+                <td>AWS, GCP, Terraform, Docker, Kubernetes, Helm</td>
+            </tr>
+            <tr>
+                <td class="skills-label">Frameworks:</td>
+                <td>Next.js, React, Vue, Gin, Caddy, Ktor, Ratpack</td>
+            </tr>
+        </table>
+
+        <!-- EXPERIENCE SECTION -->
+        <h2>Experience</h2>
+
+        <!-- Framer -->
+        <div class="experience-item">
+            <table class="job-header">
+                <tr>
+                    <td>Framer <span style="font-weight:normal; font-style:italic;">/ Senior Software Engineer</span>
+                    </td>
+                    <td class="job-meta">Jan 2026 – Present | Remote</td>
+                </tr>
+            </table>
+            <ul>
+                <li>Core member of the backend hosting team, ensuring high-performance delivery of client pages under a
+                    strict 99.999% uptime SLA.</li>
+                <li>Maintain platform reliability, speed, and horizontal scaling while acting as an internal
+                    infrastructure and DevOps partner.</li>
+                <li>Provide technical guidance, architectural oversight, and cross-functional support to accelerate
+                    engineering velocity across the organization.</li>
+            </ul>
+            <div class="tech-stack"><strong>Tech Stack:</strong> TypeScript, Go, Terraform, AWS</div>
+        </div>
+
+        <!-- Amihan -->
+        <div class="experience-item">
+            <table class="job-header">
+                <tr>
+                    <td>Amihan <span style="font-weight:normal; font-style:italic;">/ Tech Lead & Staff Software
+                            Engineer (Gaming & Web3)</span></td>
+                    <td class="job-meta">Jan 2023 – Oct 2025 | Remote</td>
+                </tr>
+            </table>
+            <ul>
+                <li>Promoted to Staff Engineer and Tech Lead to drive full-stack backend development, cloud
+                    architecture, and Web3 game strategy.</li>
+                <li>Directed the launch of a Telegram-based gaming application, rapidly scaling the platform to over
+                    500,000 monthly active users (MAU).</li>
+                <li>Architected and deployed Solidity smart contracts on the Ethereum and Base blockchains, implementing
+                    an ERC20 token ecosystem and custom wallet integrations.</li>
+                <li>Guided cross-functional engineering teams through technical mentorship, architecture reviews, and
+                    clean design patterns.</li>
+            </ul>
+            <div class="tech-stack"><strong>Tech Stack:</strong> Solidity, Go, Kotlin, TypeScript, AWS, Terraform,
+                Postgres, Redis, Vue, Next.js, React</div>
+        </div>
+
+        <!-- Administrate -->
+        <div class="experience-item">
+            <table class="job-header">
+                <tr>
+                    <td>Administrate <span style="font-weight:normal; font-style:italic;">/ Team Lead & Senior
+                            Developer</span></td>
+                    <td class="job-meta">Sept 2021 – July 2022 | Remote</td>
+                </tr>
+            </table>
+            <ul>
+                <li>Led a cross-functional engineering team as Tech Lead, serving as the primary technical point of
+                    contact across department leads to align project delivery with business goals.</li>
+                <li>Managed team motivation, established development velocity initiatives, and steered technical
+                    execution.</li>
+                <li>Developed and maintained core web applications, contributing across a hybrid Python/PHP backend and
+                    an Angular/React frontend.</li>
+            </ul>
+            <div class="tech-stack"><strong>Tech Stack:</strong> Python, PHP, MySQL, TypeScript, JavaScript, Angular,
+                React</div>
+        </div>
+
+        <!-- King -->
+        <div class="experience-item">
+            <table class="job-header">
+                <tr>
+                    <td>King <span style="font-weight:normal; font-style:italic;">/ Senior Backend Developer</span></td>
+                    <td class="job-meta">June 2020 – Aug 2021 | Barcelona</td>
+                </tr>
+            </table>
+            <ul>
+                <li>Designed and built a highly scalable backend ecosystem to serve multiple global mobile games,
+                    allowing seamless A/B experimentation and continuous feature rollout.</li>
+                <li>Shipped global-scale game features under tight timelines using lean methodologies to continuously
+                    test and validate player hypotheses.</li>
+                <li>Orchestrated the deployment of isolated, cloud-native QA and testing environments by migrating key
+                    infrastructure and services to GCP.</li>
+            </ul>
+            <div class="tech-stack"><strong>Tech Stack:</strong> Java, Gradle, Docker, Terraform, Helm, GCP, SQL</div>
+        </div>
+
+        <!-- Zopa -->
+        <div class="experience-item">
+            <table class="job-header">
+                <tr>
+                    <td>Zopa <span style="font-weight:normal; font-style:italic;">/ Backend Developer</span></td>
+                    <td class="job-meta">Aug 2017 – Jan 2020 | Barcelona - London</td>
+                </tr>
+            </table>
+            <ul>
+                <li>Engineered a core peer-to-peer lending backend engine that systematically distributed loan risk
+                    among lenders, stabilizing portfolio volatility.</li>
+                <li>Architected a distributed messaging system capable of processing 7 million messages daily while
+                    serving real-time visualization data to the frontend.</li>
+                <li>Co-led the engineering migration from a legacy monolith architecture over to scalable, event-driven
+                    microservices.</li>
+            </ul>
+            <div class="tech-stack"><strong>Tech Stack:</strong> Kotlin, Java, Kafka, Kafka-Streams, Ktor, Ratpack,
+                Redis, PostgreSQL, SQL Server</div>
+        </div>
+
+        <!-- Trovit -->
+        <div class="experience-item">
+            <table class="job-header">
+                <tr>
+                    <td>Trovit <span style="font-weight:normal; font-style:italic;">/ Data Engineer</span></td>
+                    <td class="job-meta">Mar 2015 – Aug 2017 | Barcelona</td>
+                </tr>
+            </table>
+            <ul>
+                <li>Developed an intensive, low-latency data application to communicate with Google’s Real-Time Bidding
+                    system, handling 10,000+ QPS.</li>
+                <li>Built heavy batch processing data pipelines to analyze and train the core bidding algorithm.</li>
+                <li>Spearheaded a stack migration for the AdWords team, adopting Scala and Spark to process big data.
+                </li>
+            </ul>
+            <div class="tech-stack"><strong>Tech Stack:</strong> Java, Scala, Spark, Hadoop MapReduce, Kafka, Redis
+            </div>
+        </div>
+
+        <!-- Short Roles -->
+        <div class="short-job"><strong>Aersa</strong> / Web Developer &nbsp;|&nbsp; Mar 2014 – Jan 2015 &nbsp;|&nbsp;
+            Built internal field-tooling automation and asset management software for windmill maintenance.</div>
+        <div class="short-job"><strong>Mobetia S.L</strong> / Developer &nbsp;|&nbsp; Sept 2013 – Feb 2014 &nbsp;|&nbsp;
+            Developed client-facing features across Android, iOS, and mobile web platforms.</div>
+
+        <!-- EDUCATION SECTION -->
+        <h2>Education</h2>
+        <div style="margin-bottom: 8px;">
+            <strong>UPC Universitat Politècnica de Catalunya</strong> <span
+                style="color:#7f8c8d; float:right;">Barcelona | 2008 – 2014</span><br>
+            <span style="font-style:italic; color:#5a6c7d; font-size:9.5pt;">Degree in Informatics Engineering (BSc +
+                MSc equivalent)</span>
+        </div>
+        <div>
+            <strong>Vrije Universiteit Brussel</strong> <span style="color:#7f8c8d; float:right;">Brussels | 2011 –
+                2012</span><br>
+            <span style="font-style:italic; color:#5a6c7d; font-size:9.5pt;">Computer Science: Applied Sciences and
+                Engineering (Erasmus Exchange)</span>
+        </div>
+
+        <!-- VOLUNTEER WORK SECTION -->
+        <h2>Volunteer Work</h2>
+        <div style="margin-bottom: 6px;">
+            <strong>North Bali Reef Conservation</strong> <span style="color:#7f8c8d; float:right;">July 2019</span><br>
+            <span style="color:#5a6c7d; font-size:9.5pt;">Volunteer – Coral reef ecosystem restoration and community
+                conservation work</span>
+        </div>
+        <div>
+            <strong>Voluntaris per la llengua</strong> <span style="color:#7f8c8d; float:right;">2017 – 2018</span><br>
+            <span style="color:#5a6c7d; font-size:9.5pt;">Language Mentor – Catalan cultural and language exchange
+                program</span>
+        </div>
+
+        <!-- LANGUAGES SECTION -->
+        <div class="experience-item">
+            <h2>Languages</h2>
+            <p style="margin: 4px 0;"><strong>Catalan</strong> (Native) &nbsp;|&nbsp; <strong>Spanish</strong> (Native)
+                &nbsp;|&nbsp; <strong>English</strong> (Fluent)</p>
+
+        </div>
+
+        <!-- ADDITIONAL INTERESTS SECTION -->
+        <h2>Additional Interests</h2>
+        <p style="margin: 4px 0; text-align: justify;">Away from the laptop, I can usually be found building human
+            towers with the <strong>Castellers of Sagrada Familia</strong>, competing in open-water swimming events, or
+            doing pottery.</p>
+
+    </div> <!-- End of cv-document-container -->
+
+</body>
+
+</html>
